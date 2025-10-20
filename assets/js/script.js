@@ -78,17 +78,54 @@ function createCardMarkup(membersArray) {
 
 cardContainer.innerHTML = createCardMarkup(teamMembers)
 
-// Seleziono il nodo del Dom del form
+// Seleziono il nodo del Dom del form e i nodi degli input
 
 const addMemberForm = document.getElementById("add-member-form")
+const nameField = document.getElementById("member-name")
+const roleField = document.getElementById("member-role")
+const emailField = document.getElementById("member-email")
 
 // Creo un'evento di ascolto sul bottone che previene il default
 
-// - Creo una variabile per salvare ognuno dei valori inviati dagli input
+addMemberForm.addEventListener("submit", function (event) {
+  event.preventDefault()
+  
+  // - Creo una variabile per salvare ognuno dei valori inviati dagli input
 
-// - Creo un nuovo oggetto contenente i risultati dell'input
+  const name = nameField.value
+  const role = roleField.value
+  const email = emailField.value
+  console.log(name, role, email);
 
-// - Pusho nell'array iniziale il nuovo oggetto e riavvio la funzione per farlo 
-// visualizzare in pagina
+
+// Aggiungo un immagine per i nuovi elementi 
+
+const newMemberImg = "img/tod.PNG"
+
+  // - Creo un nuovo oggetto contenente i risultati dell'input
+
+  const newMember = {
+    name, 
+    role, 
+    email,
+    img : newMemberImg
+  }
+  console.log(newMember);
+  // - Pusho nell'array iniziale il nuovo oggetto e riavvio la funzione per farlo visualizzare in pagina
+
+teamMembers.push(newMember)
+console.log(teamMembers);
+cardContainer.innerHTML = createCardMarkup(teamMembers)
 
 // - Pulisco il form 
+
+nameField.value = ""
+roleField = ""
+emailField = ""
+
+}
+)
+
+
+
+

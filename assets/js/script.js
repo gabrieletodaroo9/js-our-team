@@ -12,37 +12,37 @@ const teamMembers = [
     name: "Marco Bianchi",
     role: "Designer",
     email: "marcobianchi@team.com",
-    img: "assets/img/male1.png"
+    img: "img/male1.png"
   },
   {
     name: "Laura Rossi",
     role: "Front-end Developer",
     email: "laurarossi@team.com",
-    img: "assets/img/female1.png"
+    img: "img/female1.png"
   },
   {
     name: "Giorgio Verdi",
     role: "Back-end Developer",
     email: "giorgioverdi@team.com",
-    img: "assets/img/male2.png"
+    img: "img/male2.png"
   },
   {
     name: "Marta Ipsum",
     role: "SEO Specialist",
     email: "martarossi@team.com",
-    img: "assets/img/female2.png"
+    img: "img/female2.png"
   },
   {
     name: "Roberto Lorem",
     role: "SEO Specialist",
     email: "robertolorem@team.com",
-    img: "assets/img/male3.png"
+    img: "img/male3.png"
   },
   {
     name: "Daniela Amet",
     role: "Analyst",
     email: "danielaamet@team.com",
-    img: "assets/img/female3.png"
+    img: "img/female3.png"
   }
 ];
 
@@ -58,15 +58,13 @@ let cardMarkUp = ""
 
 for (let i = 0; i < teamMembers.length; i++) {
 
-  cardMarkUp += `<div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="card bg-dark text-white text-center rounded-4">
-                        <div class="card-header pt-4">
-                            <img src="${teamMembers[i].img}" class="rounded-4 mb-3 border border-5" alt="">
-                        </div>
-                        <div class="card-body py-2">
-                            <h3 class="card-title">${teamMembers[i].name}</h3>
-                            <p class="card-text">${teamMembers[i].role}</p>
-                            <p class="card-text">${teamMembers[i].email}</p>
+  cardMarkUp += `<div class="col-12 col-md-6 col-lg-4 my-3">
+                    <div class="d-flex bg-dark text-white" style="height: 100px;">
+                        <img src="./assets/${teamMembers[i].img}" style="width:100px; height: 100px;" alt="">
+                        <div class="p-3 d-flex flex-column justify-content-center">
+                            <h3 class="fw-bold text-uppercase pt-3">${teamMembers[i].name}</h3>
+                            <p class="text-white">${teamMembers[i].role}</p>
+                            <p class="text-primary">${teamMembers[i].email}</p>
                         </div>
                     </div>
                 </div>

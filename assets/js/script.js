@@ -51,27 +51,44 @@ const teamMembers = [
 const cardContainer = document.getElementById("card-container")
 
 // Creo una variabile di appoggio per tutto il markup
+function createCardMarkup(membersArray) {
+  let cardMarkUp = ""
 
-let cardMarkUp = ""
+  //Con un ciclo inserisco il markup dentro il documento ad ogni interazione  
 
-//Con un ciclo inserisco il markup dentro il documento ad ogni interazione  
+  for (let i = 0; i < membersArray.length; i++) {
 
-for (let i = 0; i < teamMembers.length; i++) {
-
-  cardMarkUp += `<div class="col-12 col-md-6 col-lg-4 my-3">
+    cardMarkUp += `<div class="col-12 col-md-6 col-lg-4 my-3">
                     <div class="d-flex bg-dark text-white" style="height: 100px;">
-                        <img src="./assets/${teamMembers[i].img}" style="width:100px; height: 100px;" alt="">
+                        <img src="./assets/${membersArray[i].img}" style="width:100px; height: 100px;" alt="">
                         <div class="p-3 d-flex flex-column justify-content-center">
-                            <h3 class="fw-bold text-uppercase pt-3">${teamMembers[i].name}</h3>
-                            <p class="text-white">${teamMembers[i].role}</p>
-                            <p class="text-primary">${teamMembers[i].email}</p>
+                            <h3 class="fw-bold text-uppercase pt-3">${membersArray[i].name}</h3>
+                            <p class="text-white">${membersArray[i].role}</p>
+                            <p class="text-primary">${membersArray[i].email}</p>
                         </div>
                     </div>
                 </div>
    `
-
+  }
+  return cardMarkUp
 }
+
 
 // Pusho gli elementi nell'HTML
 
-cardContainer.innerHTML = cardMarkUp
+cardContainer.innerHTML = createCardMarkup(teamMembers)
+
+// Seleziono il nodo del Dom del form
+
+const addMemberForm = document.getElementById("add-member-form")
+
+// Creo un'evento di ascolto sul bottone che previene il default
+
+// - Creo una variabile per salvare ognuno dei valori inviati dagli input
+
+// - Creo un nuovo oggetto contenente i risultati dell'input
+
+// - Pusho nell'array iniziale il nuovo oggetto e riavvio la funzione per farlo 
+// visualizzare in pagina
+
+// - Pulisco il form 

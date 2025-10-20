@@ -12,42 +12,68 @@ const teamMembers = [
     name: "Marco Bianchi",
     role: "Designer",
     email: "marcobianchi@team.com",
-    img: "img/male1.png"
+    img: "assets/img/male1.png"
   },
   {
     name: "Laura Rossi",
     role: "Front-end Developer",
     email: "laurarossi@team.com",
-    img: "img/female1.png"
+    img: "assets/img/female1.png"
   },
   {
     name: "Giorgio Verdi",
     role: "Back-end Developer",
     email: "giorgioverdi@team.com",
-    img: "img/male2.png"
+    img: "assets/img/male2.png"
   },
   {
     name: "Marta Ipsum",
     role: "SEO Specialist",
     email: "martarossi@team.com",
-    img: "img/female2.png"
+    img: "assets/img/female2.png"
   },
   {
     name: "Roberto Lorem",
     role: "SEO Specialist",
     email: "robertolorem@team.com",
-    img: "img/male3.png"
+    img: "assets/img/male3.png"
   },
   {
     name: "Daniela Amet",
     role: "Analyst",
     email: "danielaamet@team.com",
-    img: "img/female3.png"
+    img: "assets/img/female3.png"
   }
 ];
 
-// Creo un markup per la creazione di ogni card in html e poi lo copio qui
-
 // Seleziono l'elemento cardcontainer
 
+const cardContainer = document.getElementById("card-container")
+
+// Creo una variabile di appoggio per tutto il markup
+
+let cardMarkUp = ""
+
 //Con un ciclo inserisco il markup dentro il documento ad ogni interazione  
+
+for (let i = 0; i < teamMembers.length; i++) {
+
+  cardMarkUp += `<div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <div class="card bg-dark text-white text-center rounded-4">
+                        <div class="card-header pt-4">
+                            <img src="${teamMembers[i].img}" class="rounded-4 mb-3 border border-5" alt="">
+                        </div>
+                        <div class="card-body py-2">
+                            <h3 class="card-title">${teamMembers[i].name}</h3>
+                            <p class="card-text">${teamMembers[i].role}</p>
+                            <p class="card-text">${teamMembers[i].email}</p>
+                        </div>
+                    </div>
+                </div>
+   `
+
+}
+
+// Pusho gli elementi nell'HTML
+
+cardContainer.innerHTML = cardMarkUp
